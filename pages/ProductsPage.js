@@ -14,9 +14,10 @@ export class ProductsPage{
         this.productImages = page.locator("img.inventory_item_img");
         this.productNames = page.locator(".inventory_item_name");
         this.productPrices = page.locator(".inventory_item_price");
-        this.productCartButtons = page.locator("button[id*='add-to-cart']");
+        this.productDescriptions = page.locator(".inventory_item_description");
         this.backToProducts = page.locator("button#back-to-products");
         this.currectSortOption = page.locator("span.active_option");
+        this.productDetailName = page.locator("div.inventory_details_name");
     };
 
     //Method to extract the page URL
@@ -35,7 +36,7 @@ export class ProductsPage{
     //Method to get the name of the currently selected sort option
     async getCurrentSortName()
     {
-        return(this.currectSortOption.textContent());
+        return(await this.currectSortOption.textContent());
     }
 
     //Method to sort based on argument value passed
@@ -69,5 +70,26 @@ export class ProductsPage{
     {
         await this.sideBarButton.click();
         await this.allItemsLink.click();
+    }
+
+    //Method to go the product details page  
+    async goToProductDetails(productName)
+    {
+        await this.productNames.filter({ hasText: productName }).click();
+    }
+
+    //Method to get the name on the product from product details page
+    async getProductNameFromDetailsPage()
+    {
+        return(await this.productDetailName.textContent());
+    }
+
+    //Method to add a product to the cart
+    async addProductToCart(productName)
+    {
+        await this.productDescriptions
+            .filter({hasText: productName})
+            .getByRole("button")
+            .click();
     }
 }
