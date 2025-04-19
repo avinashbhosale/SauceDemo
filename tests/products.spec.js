@@ -89,7 +89,7 @@ test("Go to Product Details page", async({page}) => {
     expect.soft(productName).toEqual("Sauce Labs Bolt T-Shirt");
 });
 
-test.only("Add a product to the cart", async({page}) => {
+test("Add a product to the cart", async({page}) => {
 
     //Create object of Login page and Products page
     const loginPage = new LoginPage(page);
