@@ -11,12 +11,6 @@ export class LoginPage{
         this.errorMessage = page.locator("h3[data-test='error']");
     };
 
-    //Method to extract the page URL
-    async getURL()
-    {
-        return(await page.getURL());
-    }
-
     //Method to perform login
     async performLogin(username, password)
     {
