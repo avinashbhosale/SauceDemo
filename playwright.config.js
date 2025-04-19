@@ -33,7 +33,7 @@ export default defineConfig({
     viewport: {width: 1920, height: 1080},
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
-    headless: false,
+    headless: true,
   },
 
   /* Configure projects for major browsers */
