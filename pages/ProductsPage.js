@@ -1,6 +1,6 @@
 export class ProductsPage{
     
-    //Constructor to initialize locators on login page
+    //Constructor to initialize locators on Products page
     constructor(page)
     {
         this.sideBarButton = page.locator("#react-burger-menu-btn");
@@ -26,7 +26,7 @@ export class ProductsPage{
         return(await page.getURL());
     }
 
-    //Method to
+    //Method to perform logout
     async performLogout()
     {
         await this.sideBarButton.click();
